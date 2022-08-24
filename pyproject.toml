@@ -1,0 +1,62 @@
+[tool.poetry]
+name = "download-master"
+version = "0.0.1"
+description = ""
+authors = ["Dzmitry Makhrachou"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+aiohttp = "^3.8.1"
+aiofiles = "^0.8.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+pytest-asyncio = "^0.19.0"
+mypy = "^0.971"
+pytest-cov = "^3.0.0"
+isort = {extras = ["pyproject"], version = "^5.10.1"}
+pre-commit = "^2.20.0"
+flake8 = "^4.0.1"
+autoflake = "^1.4"
+pytest-mock = "^3.8.2"
+pytest-factoryboy = "^2.5.0"
+flake8-bandit = "^3.0.0"
+flake8-bugbear = "^22.3.23"
+flake8-import-order = "^0.18.1"
+flake8-annotations = "^2.9.1"
+pytest-dotenv = "^0.5.2"
+safety = "^1.10.3"
+autopep8 = "^1.6.0"
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+line_length = 120
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+known_first_party = ["src"]
+skip = ["venv", ".git", "migrations"]
+reverse_relative = true
+combine_as_imports = true
+no_lines_before = "LOCALFOLDER"
+lexicographical = true
+no_inline_sort = false
+case_sensitive = true
+order_by_type = false
+
+[tool.autopep8]
+max_line_length = 120
+in-place = true
+recursive = true
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 90
+
+[build-system]
+requires = ["poetry>=1.1.11"]
+build-backend = "poetry.masonry.api"
